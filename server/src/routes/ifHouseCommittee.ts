@@ -1,9 +1,9 @@
 import express from "express";
-import { createHouse } from "../controllers/ifHouseCommittee";
+import { createHouse, getAllHouses } from "../controllers/ifHouseCommittee";
 
 const router = express.Router();
 
-router.get("/", () => console.log("get success houseKeeper"));
+router.get("/", getAllHouses);
 router.post("/", createHouse);
 
 export default router;
