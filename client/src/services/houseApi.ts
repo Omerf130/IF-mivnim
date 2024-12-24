@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IHouseResponse } from '../types/types'
+import { IHouse, IHouseItemResponse, IHouseResponse } from '../types/types'
 
 // Define a service using a base URL and expected endpoints
 export const houseApi = createApi({
@@ -8,12 +8,29 @@ export const houseApi = createApi({
   tagTypes:["House"],
   endpoints: (builder) => ({
     getAllHouses: builder.query<IHouseResponse, void>({
-      query: () => "/",
-      providesTags:["House"]
+      query: () => ({
+        url: "/",
+        method: "GET"
+      }),
+      providesTags:["House"],
     }),
+    getHouseById: builder.query<IHouseItemResponse, string>({
+      query: (id) => ({
+        url: `/${id}`,
+        method: "GET"
+      }),
+      providesTags:["House"],
+    }),
+    createNewHouse: builder.mutation<IHouseItemResponse, IHouse>({
+      query: (house) => ({
+        url: "/",
+        method: "POST",
+        body: house,
+      }),
+    })
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllHousesQuery } = houseApi
+export const { useGetAllHousesQuery, useGetHouseByIdQuery, useCreateNewHouseMutation } = houseApi;

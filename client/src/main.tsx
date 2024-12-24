@@ -12,6 +12,7 @@ import IfCameras from './pages/IfCameras/IfCameras.tsx';
 import IfAssetsManagment from './pages/IfAssetsManagment/IfAssetsManagment.tsx';
 import { Provider } from 'react-redux';
 import { store } from './store/store.ts';
+import HousePage from './pages/IfHouseCommittee/HousePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path:"/houses",
         element: <IfHouseCommittee/>
+      },
+      {
+        path: "/:id",
+        element: <HousePage/>
       },
       {
         path:"/cameras",

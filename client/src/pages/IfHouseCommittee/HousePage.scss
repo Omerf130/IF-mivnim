@@ -1,0 +1,25 @@
+.housepage_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 30px;
+  .housepage_title {
+    font-size: 50px;
+  }
+  .housepage_subtitle {
+    font-size: 25px;
+  }
+  .housepage_image_wrapper {
+    width: 100%;
+    .housepage_img {
+      width: 500px;
+      height: 350px;
+    }
+  }
+  .housepage_name {
+  }
+  .housepage_bug {
+  }
+}

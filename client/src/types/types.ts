@@ -1,8 +1,12 @@
-export interface IHouse {
-  _id: string;
+export interface IHouseInput {
   title: string;
   subtitle: string;
-  image: string;
+  body: string
+  image: string[];
+}
+
+export interface IHouse extends IHouseInput {
+  _id: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -10,4 +14,9 @@ export interface IHouse {
 export interface IHouseResponse {
   message: string
   list: IHouse[]
+}
+
+export interface IHouseItemResponse {
+  message: string
+  item: IHouse
 }
